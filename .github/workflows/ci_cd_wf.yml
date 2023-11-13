@@ -30,7 +30,7 @@ jobs:
           python -m pytest -v tests
 
       - name: Run converage tests
-        run:    
+        run: |   
           pip install pytest pytest-cov
           python -m pytest --cov=tests
 
