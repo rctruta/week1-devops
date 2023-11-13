@@ -29,8 +29,13 @@ jobs:
         run: |
           python -m pytest -v tests
 
-      - name: Run converage tests
+      - name: Run converage tests and build coverage file
         run: |   
           pip install pytest pytest-cov
-          python -m pytest --cov=tests
+          python -m pytest --cov=tests | tee pytest-coverage.txt
 
+      - name: Generate pytest coverage comment
+        uses: MishaKav/pytest-coverage-comment@main
+        with:
+            pytest-coverage-path: ./pytest-coverage.txt
+            junitxml-path: ./pytest.xml
