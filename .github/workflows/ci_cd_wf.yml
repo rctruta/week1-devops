@@ -28,9 +28,9 @@ jobs:
       - name: Run tests
         run: |
           python -m pytest -v tests
-          
+
       - name: Run converage tests
         run:    
           pip install pytest pytest-cov
-          pytest --cov=tests
+          python -m pytest --cov=tests
 
